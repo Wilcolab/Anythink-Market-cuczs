@@ -53,6 +53,16 @@ router.get("/", auth.optional, function(req, res, next) {
     query.tagList = { $in: [req.query.tag] };
   }
 
+  // if the query has a title do this
+  if (typeof req.query.title !== "undefined") {
+
+    // create a regex expression of the query to match all things that could match
+    const regexPattern = new RegExp(req.query.title, "i")
+
+    // set the title query to the regex
+    query.title = { $regex: regexPattern};
+  }
+
   Promise.all([
     req.query.seller ? User.findOne({ username: req.query.seller }) : null,
     req.query.favorited ? User.findOne({ username: req.query.favorited }) : null
