@@ -3,12 +3,12 @@ kind: Service
 metadata:
   creationTimestamp: null
   labels:
-    app: {{ .Values.backend.serviceName }}
-  name: {{ .Values.backend.serviceName }}
+    app: { { .Values.backend.serviceName } }
+  name: { { .Values.backend.serviceName } }
 spec:
   ports:
     - name: "{{ .Values.backend.containerPort }}"
-      port: {{ .Values.backend.containerPort }}
-      targetPort: {{ .Values.backend.containerPort }}
+      port: { { .Values.backend.containerPort } }
+      targetPort: { { .Values.backend.containerPort } }
   selector:
-    app: {{ .Values.backend.serviceName }}
+    app: { { .Values.backend.serviceName } }

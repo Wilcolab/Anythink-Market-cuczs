@@ -46,7 +46,7 @@ services:
     volumes:
       - ~/mongo/data:/data/db
     ports:
-      - '27017:27017'
+      - "27017:27017"
 
   anythink-ack:
     build: ./frontend
@@ -58,4 +58,4 @@ services:
     ports:
       - "5555:5555"
     depends_on:
-      - "anythink-frontend-react" 
+      - "anythink-frontend-react"
