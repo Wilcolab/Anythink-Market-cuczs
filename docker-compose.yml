@@ -35,7 +35,7 @@ services:
     ports:
       - "3001:3001"
     depends_on:
-      - "anythink-backend-node"
+      - "anythink-backend-node" 
 
   mongodb-node:
     container_name: mongodb-node
@@ -46,7 +46,7 @@ services:
     volumes:
       - ~/mongo/data:/data/db
     ports:
-      - "27017:27017"
+      - '27017:27017'
 
   anythink-ack:
     build: ./frontend
