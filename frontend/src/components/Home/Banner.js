@@ -22,14 +22,7 @@ const Banner = (props) => {
           <span>A place to </span>
           <span id="get-part">get</span>
           <form action="">
-            <input
-              id="search-box"
-              type="text"
-              placeholder="What is it that you truly desire?"
-              name="Search-Term"
-              style={{ width: "375px" }}
-              onChange={handleSearch}
-            />
+            <input id="search-box" type="text" placeholder="What is it that you truly desire?" name="Search-Term" style={{ width: "375px" }} onChange={handleSearch} />
           </form>
           <span> the cool stuff.</span>
         </div>
