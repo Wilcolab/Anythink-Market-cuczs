@@ -146,25 +146,25 @@ router.post("/", auth.required, function(req, res, next) {
         return res.sendStatus(401);
       }
 
-      var item = new Item(req.body.item);
-
-      if (!item.image) {
+      
+      if (!req.body.item.image) {
         const configuration = new Configuration({
           apiKey: process.env.OPENAI_API_KEY,
         });
         
         const openai = new OpenAIApi(configuration);
         const response = await openai.createImage({
-          prompt: item.title,
+          prompt: req.body.item.title,
           n: 1,
           size: "256x256"
         });
         
-        item.image = response.data.data[0].url;
+        req.body.item.image = response.data.data[0].url;
       }
+      var item = new Item(req.body.item);
 
       item.seller = user;
-
+      
       return item.save().then(function() {
         sendEvent('item_created', { item: req.body.item })
         return res.json({ item: item.toJSONFor(user) });
