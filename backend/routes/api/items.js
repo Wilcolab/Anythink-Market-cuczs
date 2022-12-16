@@ -148,22 +148,22 @@ router.post("/", auth.required, function(req, res, next) {
 
       var item = new Item(req.body.item);
 
-      item.seller = user;
-
-      if (item.image === "") {
+      if (!item.image) {
         const configuration = new Configuration({
           apiKey: process.env.OPENAI_API_KEY,
         });
-      
+        
         const openai = new OpenAIApi(configuration);
         const response = await openai.createImage({
           prompt: item.title,
           n: 1,
           size: "256x256"
         });
-
+        
         item.image = response.data.data[0].url;
       }
+
+      item.seller = user;
 
       return item.save().then(function() {
         sendEvent('item_created', { item: req.body.item })
