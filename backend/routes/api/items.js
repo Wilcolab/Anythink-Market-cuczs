@@ -1,4 +1,3 @@
-require("dotenv").config();
 var router = require("express").Router();
 var mongoose = require("mongoose");
 var Item = mongoose.model("Item");
@@ -7,23 +6,6 @@ var User = mongoose.model("User");
 var auth = require("../auth");
 const { sendEvent } = require("../../lib/event");
 const { Configuration, OpenAIApi } = require("openai");
-
-// async function itemAutoImage(itemTitle) {
-//   const configuration = new Configuration({
-//     apiKey: process.env.OPENAI_API_KEY,
-//   });
-
-//   const openai = new OpenAIApi(configuration);
-//   const response = await openai.createImage({
-//     prompt: itemTitle,
-//     n: 1,
-//     size: "256x256"
-//   });
-
-//   const url = response.data.data[0].url;
-
-//   return url;
-// }
 
 // Preload item objects on routes with ':item'
 router.param("item", function(req, res, next, slug) {
