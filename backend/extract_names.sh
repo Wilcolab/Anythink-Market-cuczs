@@ -3,7 +3,7 @@
 cat $1
 
 # search the file for lines that have the @amazon.com email and save to a file
-grep -i "@amazon.com" $file
+grep -i "@amazon.com"
 
 # after finding the lines with that email suffix it pulls out only the data in columns 2 and 3
 cut -d"," -f2,3 
