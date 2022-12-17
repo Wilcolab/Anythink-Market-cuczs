@@ -20,4 +20,4 @@ cut -d"," -f2,3
 sed 's/,/ /g'
 
 # print the info in the second column first then the info in the first coulmn to result.txt
-awk '{print $2, $1}' result.txt
+awk '{print $2, $1}' > output_names.txt
