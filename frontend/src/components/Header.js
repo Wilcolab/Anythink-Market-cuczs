@@ -49,10 +49,9 @@ const LoggedInView = (props) => {
   );
 };
 
-function Header(props) {
+const Header = (props) => {
   return (
-    <div>
-            <nav
+      <nav
         className="navbar navbar-expand-md navbar-dark"
         style={{ padding: "0.5rem 2rem" }}
       >
@@ -66,7 +65,6 @@ function Header(props) {
           <LoggedOutView currentUser={props.currentUser} />
         )}
       </nav>
-    </div>
   )
 }
 
