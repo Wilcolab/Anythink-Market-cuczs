@@ -11,5 +11,5 @@ cut -d"," -f2,3
 # replaces the , inbetween the names with a space
 sed 's/,/ /g'
 
-# print the info in the second column first then the info in the first coulmn to result.txt
-awk '{print $2, $1}' > output_names.txt
+# print the info in the second column first then the info in the first coulmn to arg space 2
+awk '{print $2, $1}' > $2
